@@ -22,9 +22,9 @@ app.get("/", (req, res) => {
   res.send("ok");
 });
 
-app.post("/send-file", upload.single("image"), (req, res) => {
-  console.log(req.file);
-  res.send("file data");
+app.post("/send-file", upload.array("images"), (req, res) => {
+  console.log(req.files);
+  res.send("files uploaded");
 });
 
 app.listen(3000, () => {
